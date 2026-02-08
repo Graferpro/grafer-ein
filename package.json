@@ -1,0 +1,10 @@
+{
+  "name": "grafer-ein-express",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node api/generate-pdf.js"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}
