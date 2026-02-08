@@ -10,11 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .glass-panel { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
         /* Chat animasyonları */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        /* Scrollbar Gizleme */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -28,18 +26,14 @@
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-blue-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                    <i class="fas fa-file-invoice-dollar text-white text-lg"></i>
+                    <i class="fas fa-shield-alt text-white text-lg"></i>
                 </div>
                 <div>
                     <span class="block font-bold text-xl text-white tracking-tight leading-none">Grafer<span class="text-emerald-400">EIN</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Official Filing Service</span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Official Service</span>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="hidden md:flex items-center gap-2 text-xs font-bold text-emerald-400 bg-emerald-900/20 px-3 py-1 rounded-full border border-emerald-500/20">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    IRS SYSTEMS ONLINE
-                </div>
                 <button onclick="openAIChat()" class="px-5 py-2.5 text-sm font-bold text-[#0f172a] bg-white rounded-lg hover:bg-slate-200 transition shadow-lg">
                     Start Now
                 </button>
@@ -52,7 +46,7 @@
             
             <div class="inline-block mb-6 animate-bounce duration-[2000ms]">
                 <span class="px-4 py-2 rounded-full bg-slate-800 border border-slate-700 text-sm font-medium text-slate-300">
-                    🇺🇸 For Non-US Residents & Foreign Founders
+                    🇺🇸 Non-US Residents Only
                 </span>
             </div>
 
@@ -63,25 +57,20 @@
             
             <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
                 Stuck on Stripe or Amazon? We obtain your Federal Tax ID (EIN) directly from the IRS. 
-                AI-powered form preparation, zero paperwork errors.
+                AI-powered form preparation.
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-5">
                 <button onclick="openAIChat()" class="px-8 py-5 text-lg font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl hover:scale-105 transition shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-3 group">
-                    <i class="fas fa-bolt text-emerald-100"></i> Start Application
+                    <i class="fas fa-bolt text-emerald-100"></i> Start Application - $49
                 </button>
-                <div class="flex items-center justify-center gap-2 px-6 py-5 text-slate-300 bg-slate-800/50 rounded-xl border border-slate-700">
-                    <span class="line-through text-slate-500">$99</span>
-                    <span class="text-white font-bold text-lg">$49</span>
-                    <span class="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">One-time</span>
-                </div>
             </div>
             
             <div class="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition duration-500">
-                <div class="flex items-center gap-2"><i class="fab fa-stripe text-2xl"></i><span class="font-bold">Stripe Ready</span></div>
-                <div class="flex items-center gap-2"><i class="fab fa-amazon text-2xl"></i><span class="font-bold">Amazon Seller</span></div>
-                <div class="flex items-center gap-2"><i class="fab fa-paypal text-2xl"></i><span class="font-bold">PayPal Verified</span></div>
-                <div class="flex items-center gap-2"><i class="fab fa-shopify text-2xl"></i><span class="font-bold">Shopify</span></div>
+                <i class="fab fa-stripe text-3xl"></i>
+                <i class="fab fa-amazon text-3xl"></i>
+                <i class="fab fa-paypal text-3xl"></i>
+                <i class="fab fa-shopify text-3xl"></i>
             </div>
         </div>
     </main>
@@ -92,13 +81,13 @@
                 <div class="flex items-center gap-3">
                     <div class="relative">
                         <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden">
-                             <i class="fas fa-robot text-emerald-600 text-xl"></i>
+                             <i class="fas fa-shield-alt text-emerald-600 text-xl"></i>
                         </div>
                         <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#1e293b] rounded-full"></span>
                     </div>
                     <div>
-                        <p class="font-bold text-white text-sm">Grafer Tax Agent</p>
-                        <p class="text-[10px] text-emerald-100 opacity-90">Online • IRS Expert</p>
+                        <p class="font-bold text-white text-sm">Grafer Pro EIN</p>
+                        <p class="text-[10px] text-emerald-100 opacity-90">IRS AI Agent • Online</p>
                     </div>
                 </div>
                 <button onclick="closeAIChat()" class="text-white/70 hover:text-white"><i class="fas fa-times"></i></button>
@@ -112,15 +101,15 @@
                         <i class="fas fa-robot text-emerald-400 text-xs"></i>
                     </div>
                     <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-200 border border-slate-700 shadow-sm">
-                        <p>Merhaba! 👋 Ben Grafer Asistanı. SSN numaranız olmadan EIN (Vergi Kimlik No) almanıza yardım etmek için buradayım.</p>
-                        <p class="mt-2">Başlamak için lütfen <strong>Adınızı ve Soyadınızı</strong> yazın.</p>
+                        <p>Hello! 👋 I am Grafer Pro EIN. I can help you with your EIN application.</p>
+                        <p class="mt-2 text-xs text-slate-400">Türkçe de konuşabilirim. Nasıl yardımcı olabilirim?</p>
                     </div>
                 </div>
             </div>
 
             <div class="p-3 bg-[#1e293b] border-t border-slate-700">
                 <form onsubmit="event.preventDefault(); sendMessage();" class="relative">
-                    <input id="user-input" type="text" placeholder="Cevabınızı buraya yazın..." class="w-full bg-slate-900 border border-slate-600 rounded-xl pl-4 pr-12 py-3.5 text-sm text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition shadow-inner">
+                    <input id="user-input" type="text" placeholder="Type here / Buraya yazın..." class="w-full bg-slate-900 border border-slate-600 rounded-xl pl-4 pr-12 py-3.5 text-sm text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition shadow-inner">
                     <button type="submit" class="absolute right-2 top-2 h-9 w-9 bg-emerald-600 rounded-lg flex items-center justify-center text-white hover:bg-emerald-500 transition shadow-lg">
                         <i class="fas fa-paper-plane text-xs"></i>
                     </button>
@@ -130,22 +119,11 @@
     </div>
 
     <script>
-        // Chat Penceresini Aç
-        function openAIChat() {
-            document.getElementById('ai-chat-container').classList.remove('hidden');
-            // Mobilde klavye hemen açılmasın diye focus'u kapattım, istersen açabilirsin.
-            // document.getElementById('user-input').focus(); 
-        }
+        function openAIChat() { document.getElementById('ai-chat-container').classList.remove('hidden'); }
+        function closeAIChat() { document.getElementById('ai-chat-container').classList.add('hidden'); }
 
-        // Chat Penceresini Kapat
-        function closeAIChat() {
-            document.getElementById('ai-chat-container').classList.add('hidden');
-        }
-
-        // Konuşma Geçmişi (Robotun hafızası)
         let messageHistory = [];
 
-        // Mesaj Gönderme Fonksiyonu
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const msg = input.value;
@@ -153,38 +131,31 @@
 
             const chat = document.getElementById('chat-messages');
             
-            // 1. Kullanıcının Mesajını Ekrana Bas
+            // Kullanıcı Mesajı
             chat.innerHTML += `
                 <div class="flex gap-3 justify-end animate-[fadeIn_0.3s] mb-4">
-                    <div class="bg-emerald-600 p-3 rounded-2xl rounded-tr-none text-sm text-white shadow-md max-w-[85%] break-words">
-                        ${msg}
-                    </div>
+                    <div class="bg-emerald-600 p-3 rounded-2xl rounded-tr-none text-sm text-white shadow-md max-w-[85%] break-words">${msg}</div>
                 </div>`;
             
-            // Kutuyu temizle ve aşağı kaydır
             input.value = '';
             chat.scrollTop = chat.scrollHeight;
-
-            // Mesajı hafızaya ekle
             messageHistory.push({ role: "user", content: msg });
 
-            // 2. Yükleniyor Animasyonu Göster
+            // Yükleniyor...
             const loadingId = 'loading-' + Date.now();
             chat.innerHTML += `
                 <div id="${loadingId}" class="flex gap-3 animate-[fadeIn_0.3s] mb-4">
                     <div class="w-8 h-8 rounded-full bg-emerald-600/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30">
                         <i class="fas fa-robot text-emerald-400 text-xs"></i>
                     </div>
-                    <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-400 border border-slate-700 shadow-sm flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-100"></span>
-                        <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce delay-200"></span>
+                    <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-400 border border-slate-700 shadow-sm">
+                        Writing...
                     </div>
                 </div>`;
             chat.scrollTop = chat.scrollHeight;
 
             try {
-                // 3. Mesajı Arka Plana (api/chat.js) Gönder
+                // Backend'e Gönder
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -192,14 +163,11 @@
                 });
 
                 const data = await response.json();
-                
-                // Yükleniyor işaretini kaldır
-                const loadingElement = document.getElementById(loadingId);
-                if(loadingElement) loadingElement.remove();
+                document.getElementById(loadingId).remove();
 
                 if (data.error) throw new Error(data.error);
 
-                // 4. Robotun Cevabını Ekrana Bas
+                // Bot Cevabı
                 chat.innerHTML += `
                 <div class="flex gap-3 animate-[fadeIn_0.3s] mb-4">
                     <div class="w-8 h-8 rounded-full bg-emerald-600/20 flex-shrink-0 flex items-center justify-center border border-emerald-500/30">
@@ -210,16 +178,12 @@
                     </div>
                 </div>`;
                 
-                // Robotun cevabını da hafızaya ekle
                 messageHistory.push({ role: "assistant", content: data.reply });
 
             } catch (error) {
-                // Hata olursa
                 document.getElementById(loadingId)?.remove();
-                chat.innerHTML += `<div class="text-red-400 text-xs text-center mb-4 p-2 bg-red-900/20 rounded">Bağlantı hatası. Lütfen tekrar deneyin.</div>`;
+                chat.innerHTML += `<div class="text-red-400 text-xs text-center mb-4">Connection Error.</div>`;
             }
-            
-            // En aşağı kaydır
             chat.scrollTop = chat.scrollHeight;
         }
     </script>
