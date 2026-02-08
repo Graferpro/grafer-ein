@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       messages: [
         {
           role: "system",
-          content: "Senin adın 'Grafer Pro EIN Asistanı'. Sen yabancılar (Non-US Residents) için IRS SS-4 formunu doldurmaya yardımcı olan profesyonel bir asistansın. Kullanıcıya her zaman Türkçe yanıt ver ama form için gerekli bilgileri (Ad, Adres vb.) net bir şekilde iste. Kısa ve güven verici konuş."
+          content: "You are 'Grafer Pro EIN'. You are an expert AI agent helping non-US residents get an EIN number. IMPORTANT RULE: Detect the user's language. If the user writes in English, reply in English. If the user writes in Turkish, reply in Turkish. Keep answers professional, short, and helpful."
         },
         ...messages
       ],
@@ -26,6 +26,6 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Yapay zeka şu an meşgul.' });
+    res.status(500).json({ error: 'AI Error' });
   }
 }
