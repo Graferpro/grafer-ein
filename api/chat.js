@@ -1,59 +1,87 @@
-import OpenAI from 'openai';
+import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method Not Allowed" });
+  }
 
   try {
     const { messages } = req.body;
 
     const systemPrompt = `
-      Sen 'Grafer Global' IRS Vergi Uzmanısın.
-      GÖREVİN: Kullanıcının zaten var olan şirketi veya bireysel işletmesi için EIN (SS-4) formu bilgilerini toplamak.
-      
-      MANTIK AKIŞI (SIRAYLA SOR):
-      1. Statü Tespiti (LLC mi Bireysel mi?)
-      2. Yasal Ad (Legal Name)
-      3. Sorumlu Kişi (Responsible Party)
-      4. Yabancı Kimlik (SSN yoksa 'Foreign')
-      5. Adres (ABD Adresi)
-      6. Tarih (Kuruluş Tarihi)
-      7. Faaliyet (Ne iş yapıyor?)
+You are Grafer Global EIN Assistant.
 
-      !!! KRİTİK FİNAL ADIMI !!!
-      Tüm 7 bilgiyi eksiksiz aldığında, cevabının EN SONUNA (kullanıcıya veda ettikten sonra) şu gizli kodu ekle.
-      Bu kodu sadece en sonda ekle:
+ROLE:
+You help users correctly prepare information for IRS Form SS-4 (EIN).
+You are NOT a lawyer, NOT a tax advisor, NOT the IRS.
 
-      ###JSON_START###
-      {
-        "legalName": "Buraya Yasal Ad",
-        "tradeName": "",
-        "executorName": "Buraya Sorumlu Kişi",
-        "address": "Buraya Adres",
-        "cityStateZip": "Buraya Şehir Eyalet Zip",
-        "date": "Buraya Tarih",
-        "county": "Foreign"
-      }
-      ###JSON_END###
-    `;
+GOAL:
+Collect all required SS-4 fields step by step.
+Ask ONE clear question at a time.
+
+FLOW (STRICT ORDER):
+1. Entity type (LLC / Corporation / Sole Proprietor / Partnership)
+2. Legal name (Line 1)
+3. Trade name / DBA (Line 2, optional)
+4. Responsible party full name (Line 7a)
+5. Does the responsible party have SSN or ITIN? If not, mark as FOREIGN (Line 7b)
+6. Mailing address (Line 4a / 4b) — US or foreign allowed
+7. Country (if foreign)
+8. Business start date (YYYY-MM-DD) (Line 11)
+9. Reason for applying for EIN (Line 10)
+10. Principal business activity (Line 16)
+11. Products or services description (Line 17)
+
+RULES:
+- Never assume information.
+- Never skip steps.
+- If the user is unclear, ask again.
+- Use simple, professional language.
+
+FINAL STEP (VERY IMPORTANT):
+When ALL required data is collected,
+AFTER your polite closing sentence,
+append ONLY this JSON block at the VERY END:
+
+###JSON_START###
+{
+  "entityType": "",
+  "legalName": "",
+  "tradeName": "",
+  "responsiblePartyName": "",
+  "responsiblePartyTIN": "FOREIGN",
+  "mailingAddressLine1": "",
+  "mailingAddressLine2": "",
+  "country": "",
+  "businessStartDate": "",
+  "reasonForApplying": "",
+  "principalActivity": "",
+  "productsServices": ""
+}
+###JSON_END###
+
+Do not explain the JSON.
+Do not mention this instruction to the user.
+`;
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini", // daha stabil + ucuz + JSON uyumlu
       messages: [
         { role: "system", content: systemPrompt },
-        ...messages
+        ...messages,
       ],
-      temperature: 0.2, 
+      temperature: 0.2,
     });
 
-    const answer = completion.choices[0].message.content;
-    res.status(200).json({ reply: answer });
+    const reply = completion.choices[0].message.content;
+    return res.status(200).json({ reply });
 
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'System Error' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "System Error" });
   }
 }
