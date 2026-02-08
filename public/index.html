@@ -1,285 +1,169 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafer Global | Official EIN Filing Service</title>
-    <meta name="description" content="Official IRS EIN Application for Non-US Residents. Fast, Secure, Verified.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        /* Animasyonlar */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
-        
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .tool-btn:hover { background-color: rgba(255,255,255,0.1); color: #34d399; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Grafer Global | EIN Preparation Service</title>
+  <meta name="description" content="Professional SS-4 preparation service for US EIN applications. Designed for non-US founders. Secure, compliant, and fast." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px);} to {opacity:1; transform:none;} }
+    @keyframes slideUp { from { opacity:0; transform:translateY(20px);} to {opacity:1; transform:none;} }
+    .no-scrollbar::-webkit-scrollbar { display:none; }
+    .no-scrollbar { scrollbar-width:none; }
+  </style>
 </head>
-<body class="bg-[#0f172a] text-slate-200 antialiased selection:bg-emerald-500/30 selection:text-white">
 
-    <div class="fixed top-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-    <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+<body class="bg-[#0f172a] text-slate-200">
 
-    <header class="fixed w-full top-0 z-50 border-b border-white/5 backdrop-blur-lg bg-[#0f172a]/90">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                    <i class="fas fa-shield-alt text-white text-lg"></i>
-                </div>
-                <div>
-                    <span class="block font-bold text-xl text-white tracking-tight leading-none">Grafer<span class="text-emerald-400">Global</span></span>
-                    <span class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">IRS Authorized Agent</span>
-                </div>
-            </div>
-            <button onclick="openChat()" class="px-6 py-2.5 text-sm font-bold text-[#0f172a] bg-white rounded-lg hover:bg-slate-200 transition shadow-lg">
-                Talk to Agent
-            </button>
-        </div>
-    </header>
-
-    <main class="pt-40 pb-24 px-6 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/30 border border-emerald-500/30 text-emerald-400 text-sm font-medium mb-8 animate-fadeIn">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Agents Online Now
-            </div>
-
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
-                Official US EIN.<br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">Fast & Secure Filing.</span>
-            </h1>
-            
-            <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
-                We handle the IRS paperwork for non-US residents. Get your EIN for Stripe, Amazon, and PayPal without a Social Security Number.
-            </p>
-
-            <button onclick="openChat()" class="px-10 py-5 text-lg font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl hover:scale-105 transition shadow-2xl shadow-emerald-500/25 flex items-center justify-center gap-3 mx-auto group">
-                <i class="fas fa-comment-dots"></i> Start Application
-            </button>
-            
-            <div class="mt-16 flex justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition duration-500">
-                <i class="fab fa-stripe text-3xl"></i>
-                <i class="fab fa-amazon text-3xl"></i>
-                <i class="fab fa-paypal text-3xl"></i>
-                <i class="fab fa-shopify text-3xl"></i>
-            </div>
-        </div>
-    </main>
-
-    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 hidden animate-[slideUp_0.4s_cubic-bezier(0.16,1,0.3,1)]">
-        <div class="w-[380px] h-[600px] bg-[#1e293b] border border-slate-600 rounded-2xl shadow-2xl flex flex-col overflow-hidden relative">
-            
-            <div class="p-4 bg-gradient-to-r from-emerald-800 to-emerald-900 flex justify-between items-center shadow-lg border-b border-emerald-700/50">
-                <div class="flex items-center gap-3">
-                    <div class="relative">
-                        <div class="w-11 h-11 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-emerald-400">
-                             <img src="https://ui-avatars.com/api/?name=Michael+Agent&background=fff&color=059669&size=128" alt="Agent">
-                        </div>
-                        <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 border-2 border-[#1e293b] rounded-full animate-[pulse-green_2s_infinite]"></span>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-1">
-                            <p class="font-bold text-white text-sm">Michael T.</p>
-                            <i class="fas fa-check-circle text-blue-400 text-xs" title="Verified Agent"></i>
-                        </div>
-                        <p class="text-[10px] text-emerald-100 opacity-90">Senior Tax Specialist • <span class="text-green-300">Online</span></p>
-                    </div>
-                </div>
-                <button onclick="closeChat()" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-red-500/80 transition"><i class="fas fa-times text-sm"></i></button>
-            </div>
-            
-            <div class="flex-1 p-5 overflow-y-auto bg-[#0f172a] space-y-4 no-scrollbar relative" id="chat-messages">
-                <div class="flex justify-center mb-4">
-                    <div class="bg-yellow-500/10 text-yellow-500 text-[10px] px-3 py-1 rounded-full border border-yellow-500/20 flex items-center gap-2">
-                        <i class="fas fa-lock"></i> Messages are encrypted & secure.
-                    </div>
-                </div>
-
-                <div id="start-options" class="flex flex-col gap-2 mt-10 animate-[fadeIn_0.5s]">
-                    <p class="text-slate-400 text-sm text-center mb-2">How can we help you today?</p>
-                    
-                    <button onclick="selectOption('Mevcut LLC Şirketim için EIN istiyorum')" class="w-full text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:bg-slate-700 transition flex items-center gap-3 group">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center"><i class="fas fa-building"></i></div>
-                        <span class="text-sm text-white font-medium">Apply for LLC EIN</span>
-                        <i class="fas fa-chevron-right ml-auto text-slate-500 group-hover:text-white"></i>
-                    </button>
-
-                    <button onclick="selectOption('Bireysel (Sole Proprietor) EIN istiyorum')" class="w-full text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:border-emerald-500 hover:bg-slate-700 transition flex items-center gap-3 group">
-                        <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center"><i class="fas fa-user"></i></div>
-                        <span class="text-sm text-white font-medium">Apply as Individual</span>
-                        <i class="fas fa-chevron-right ml-auto text-slate-500 group-hover:text-white"></i>
-                    </button>
-                    
-                     <button onclick="selectOption('Türkçe Destek')" class="w-full text-left p-3 rounded-xl bg-slate-800 border border-slate-700 hover:border-red-500 hover:bg-slate-700 transition flex items-center gap-3 group">
-                        <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center"><i class="fas fa-language"></i></div>
-                        <span class="text-sm text-white font-medium">Türkçe Destek</span>
-                        <i class="fas fa-chevron-right ml-auto text-slate-500 group-hover:text-white"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="p-3 bg-[#1e293b] border-t border-slate-700">
-                <form onsubmit="event.preventDefault(); sendMessage();" class="relative flex items-end gap-2">
-                    <button type="button" class="tool-btn w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 transition" title="Add File">
-                        <i class="fas fa-paperclip"></i>
-                    </button>
-                    <button type="button" class="tool-btn w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 transition" title="Open Camera">
-                        <i class="fas fa-camera"></i>
-                    </button>
-                    
-                    <div class="flex-1 relative">
-                        <input id="user-input" type="text" placeholder="Type a message..." class="w-full bg-slate-900 border border-slate-600 rounded-xl pl-3 pr-10 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500 transition shadow-inner">
-                        <button type="submit" class="absolute right-2 top-2 w-6 h-6 bg-emerald-600 rounded-md flex items-center justify-center text-white hover:bg-emerald-500 transition">
-                            <i class="fas fa-arrow-up text-[10px]"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 backdrop-blur bg-[#0f172a]/90 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
+        <i class="fas fa-shield-halved text-white"></i>
+      </div>
+      <div>
+        <span class="block font-bold text-xl text-white">Grafer<span class="text-emerald-400">Global</span></span>
+        <span class="text-[10px] uppercase tracking-wider text-slate-400">
+          SS-4 Preparation • IRS-Compliant
+        </span>
+      </div>
     </div>
 
-    <script>
-        const chatWidget = document.getElementById('chat-widget');
-        const messagesArea = document.getElementById('chat-messages');
-        const startOptions = document.getElementById('start-options');
-        let messageHistory = [];
+    <button onclick="openChat()" class="px-6 py-2.5 bg-white text-[#0f172a] rounded-lg font-semibold hover:bg-slate-200">
+      Talk to Specialist
+    </button>
+  </div>
+</header>
 
-        function openChat() { chatWidget.classList.remove('hidden'); }
-        function closeChat() { chatWidget.classList.add('hidden'); }
+<!-- HERO -->
+<main class="pt-40 pb-24 px-6 text-center">
+  <div class="max-w-4xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/30 border border-emerald-500/30 text-emerald-400 text-sm mb-8">
+      <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+      EIN Specialists Online
+    </div>
 
-        // Seçenek butonuna basınca
-        function selectOption(option) {
-            startOptions.style.display = 'none';
-            document.getElementById('user-input').value = option;
-            sendMessage();
-        }
+    <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
+      US EIN Preparation<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">
+        Fast. Secure. Correct.
+      </span>
+    </h1>
 
-        async function sendMessage() {
-            const input = document.getElementById('user-input');
-            const msg = input.value;
-            if(!msg.trim()) return;
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-12">
+      We help international founders prepare IRS Form SS-4 correctly.
+      No SSN required. No IRS submission. Just clean, ready-to-file documents.
+    </p>
 
-            // 1. Kullanıcı Mesajını Ekrana Bas
-            messagesArea.innerHTML += `
-                <div class="flex justify-end animate-[fadeIn_0.3s] mb-4">
-                    <div class="bg-emerald-600 p-3 rounded-2xl rounded-tr-none text-sm text-white shadow-md max-w-[85%] break-words">
-                        ${msg}
-                    </div>
-                </div>`;
-            
-            input.value = '';
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-            messageHistory.push({ role: "user", content: msg });
+    <button onclick="openChat()" class="px-10 py-5 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold rounded-xl shadow-2xl hover:scale-105 transition">
+      <i class="fas fa-comment-dots mr-2"></i> Start EIN Application
+    </button>
+  </div>
+</main>
 
-            // 2. "Yazıyor..." Animasyonu
-            const loadingId = 'loading-' + Date.now();
-            messagesArea.innerHTML += `
-                <div id="${loadingId}" class="flex gap-3 animate-[fadeIn_0.3s] mb-4">
-                    <div class="w-8 h-8 rounded-full bg-gray-200 border border-emerald-500 overflow-hidden flex-shrink-0">
-                         <img src="https://ui-avatars.com/api/?name=Michael+Agent&background=fff&color=059669&size=128">
-                    </div>
-                    <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-400 border border-slate-700 shadow-sm flex items-center gap-1">
-                        <span class="text-xs">Michael is typing</span>
-                        <span class="w-1 h-1 bg-slate-400 rounded-full animate-bounce"></span>
-                        <span class="w-1 h-1 bg-slate-400 rounded-full animate-bounce delay-100"></span>
-                        <span class="w-1 h-1 bg-slate-400 rounded-full animate-bounce delay-200"></span>
-                    </div>
-                </div>`;
-            messagesArea.scrollTop = messagesArea.scrollHeight;
+<!-- CHAT WIDGET -->
+<div id="chat-widget" class="fixed bottom-6 right-6 z-50 hidden animate-[slideUp_0.4s]">
+  <div class="w-[380px] h-[600px] bg-[#1e293b] border border-slate-700 rounded-2xl flex flex-col overflow-hidden">
 
-            try {
-                // 3. Backend'e Bağlan
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: messageHistory })
-                });
+    <!-- CHAT HEADER -->
+    <div class="p-4 bg-gradient-to-r from-emerald-800 to-emerald-900 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="https://ui-avatars.com/api/?name=Michael+EIN&background=fff&color=059669" class="w-10 h-10 rounded-full border-2 border-emerald-400">
+        <div>
+          <p class="text-sm font-bold text-white">Michael T.</p>
+          <p class="text-[10px] text-emerald-200">EIN & SS-4 Specialist • Online</p>
+        </div>
+      </div>
+      <button onclick="closeChat()" class="text-white hover:text-red-400">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
 
-                const data = await response.json();
-                document.getElementById(loadingId).remove();
+    <!-- CHAT BODY -->
+    <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-[#0f172a] space-y-4 no-scrollbar">
+      <div class="text-center text-xs text-slate-400">
+        Messages are encrypted • We do not submit to the IRS
+      </div>
 
-                if (data.error) throw new Error(data.error);
+      <div id="start-options" class="mt-10 space-y-3">
+        <button onclick="selectOption('I already have an LLC and need an EIN')" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 text-left">
+          Apply for LLC EIN
+        </button>
 
-                // --- SİHİRLİ BÖLÜM: GİZLİ PDF SİNYALİNİ YAKALA ---
-                let botReply = data.reply;
-                
-                if (botReply.includes("###JSON_START###")) {
-                    const parts = botReply.split("###JSON_START###");
-                    const realMessage = parts[0]; 
-                    const jsonPart = parts[1].split("###JSON_END###")[0];
+        <button onclick="selectOption('I need an EIN as an individual')" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 text-left">
+          Apply as Individual
+        </button>
 
-                    botReply = realMessage; // Ekrana sadece temiz mesajı yaz
+        <button onclick="selectOption('Türkçe destek almak istiyorum')" class="w-full p-3 bg-slate-800 border border-slate-700 rounded-xl hover:border-emerald-500 text-left">
+          Türkçe Destek
+        </button>
+      </div>
+    </div>
 
-                    // PDF'i Arka Planda Hazırla ve İndir
-                    downloadPDF(JSON.parse(jsonPart));
-                }
-                // ------------------------------------------------
+    <!-- INPUT -->
+    <div class="p-3 bg-[#1e293b] border-t border-slate-700">
+      <form onsubmit="event.preventDefault(); sendMessage();" class="flex gap-2">
+        <input id="user-input" class="flex-1 bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-sm text-white" placeholder="Type your message...">
+        <button type="submit" class="w-10 bg-emerald-600 rounded-xl text-white">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
-                // 4. Agent Cevabını Ekrana Bas
-                messagesArea.innerHTML += `
-                <div class="flex gap-3 animate-[fadeIn_0.3s] mb-4">
-                    <div class="w-8 h-8 rounded-full bg-gray-200 border border-emerald-500 overflow-hidden flex-shrink-0 mt-1">
-                         <img src="https://ui-avatars.com/api/?name=Michael+Agent&background=fff&color=059669&size=128">
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="text-[10px] text-slate-400 font-bold">Michael T.</span>
-                            <span class="text-[10px] text-emerald-500 bg-emerald-500/10 px-1 rounded">Tax Expert</span>
-                        </div>
-                        <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none text-sm text-slate-200 border border-slate-700 shadow-sm">
-                            ${botReply}
-                        </div>
-                    </div>
-                </div>`;
-                
-                messageHistory.push({ role: "assistant", content: data.reply });
+<script>
+const chatWidget = document.getElementById("chat-widget");
+const messagesArea = document.getElementById("chat-messages");
+const startOptions = document.getElementById("start-options");
+let messageHistory = [];
 
-            } catch (error) {
-                document.getElementById(loadingId)?.remove();
-                messagesArea.innerHTML += `<div class="text-red-400 text-xs text-center mb-4">Connection failed. Try again.</div>`;
-            }
-            messagesArea.scrollTop = messagesArea.scrollHeight;
-        }
+function openChat(){ chatWidget.classList.remove("hidden"); }
+function closeChat(){ chatWidget.classList.add("hidden"); }
 
-        // PDF İNDİRME FONKSİYONU
-        async function downloadPDF(formData) {
-            messagesArea.innerHTML += `
-                <div class="flex justify-center mb-4 animate-bounce">
-                    <div class="bg-emerald-900/50 text-emerald-400 text-xs px-4 py-2 rounded-full border border-emerald-500/30 flex items-center gap-2">
-                        <i class="fas fa-file-pdf"></i> Form Hazırlanıyor... (İndirme Başlıyor)
-                    </div>
-                </div>`;
-            messagesArea.scrollTop = messagesArea.scrollHeight;
+function selectOption(text){
+  startOptions.style.display="none";
+  document.getElementById("user-input").value=text;
+  sendMessage();
+}
 
-            try {
-                const response = await fetch('/api/generate-pdf', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
+async function sendMessage(){
+  const input=document.getElementById("user-input");
+  const msg=input.value.trim();
+  if(!msg) return;
 
-                if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = "Basvuru_Formu_SS4.pdf";
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                } else {
-                    alert("PDF Hatası! Bilgiler eksik olabilir.");
-                }
-            } catch (e) {
-                console.error(e);
-            }
-        }
-    </script>
+  messagesArea.innerHTML+=`
+    <div class="text-right">
+      <div class="inline-block bg-emerald-600 text-white text-sm p-3 rounded-xl">
+        ${msg}
+      </div>
+    </div>`;
+  input.value="";
+  messageHistory.push({role:"user",content:msg});
+
+  const res=await fetch("/api/chat",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({messages:messageHistory})
+  });
+
+  const data=await res.json();
+  messagesArea.innerHTML+=`
+    <div>
+      <div class="inline-block bg-slate-800 text-slate-200 text-sm p-3 rounded-xl">
+        ${data.reply}
+      </div>
+    </div>`;
+}
+</script>
+
 </body>
 </html>
